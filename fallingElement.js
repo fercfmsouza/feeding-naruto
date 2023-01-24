@@ -18,11 +18,12 @@ class FallingElement extends Shape {
     const reRender = () => {
       this.ctx.clearRect(this.x, this.y, this.width, this.height);
 
-      this.y += 1;
+      this.y += 2;
 
       this.ctx.drawImage(img, this.x, this.y, this.width, this.height);
     };
 
+    //checking collision
     const checkCollision = (naruto) => {
       const narutoXRight = naruto.x + naruto.width;
       const narutoYBottom = naruto.y + naruto.height;
@@ -38,29 +39,41 @@ class FallingElement extends Shape {
 
       const isColliding = overlapX && overlapY;
 
+      //adding collision and collision audio
       if (isColliding) {
         if (isObstacle) {
-          console.log('IM OBSTACLE!');
-        } else {
-          this.ctx.clearRect(this.x, this.y, this.width, this.height);
-          this.ctx.clearRect(canvas.width - 200, 80, 300, 60);
+          window.endGame();
           clearInterval(interval);
-          console.log('YAMMMY!');
+          document.querySelector('canvas').style.display = 'none';
+          document.querySelector('#game-over').style.display = 'flex';
+
+          GameAudio.stopStartGameSound();
+          GameAudio.playGameOverSound();
+
+          const totalPoints = document.querySelector('#points');
+          totalPoints.innerHTML = FallingElement.points;
+        } else {
+          clearInterval(interval);
+
+          GameAudio.playEatingSound();
           FallingElement.points++;
+          this.ctx.clearRect(0, 0, canvas.width, canvas.height);
+          this.ctx.clearRect(canvas.width - 200, 80, 300, 60);
         }
       }
     };
 
+    //adding score
     const interval = setInterval(() => {
       reRender();
       checkCollision(this.naruto);
 
-      this.ctx.font = '24px Rowdies';
+      this.ctx.font = '36px Rowdies';
       this.ctx.fillStyle = '#e14f35';
       this.ctx.fillText(
         `Score: ${FallingElement.points}`,
         canvas.width - 200,
-        80,
+        50,
       );
 
       if (this.y === canvas.height + this.height) {

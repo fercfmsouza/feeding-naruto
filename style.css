@@ -5,11 +5,17 @@
   font-family: 'Rowdies', sans-serif;
 }
 
+:root {
+  --orange-color: #e14f35;
+  --dark-blue: #143966;
+  --white: #ffffff;
+  --black: #000000;
+}
+
 body {
   height: 100vh;
   background: no-repeat url(./img/bg.png);
   background-size: cover;
-  /* overflow: hidden; */
 }
 
 h1 {
@@ -27,13 +33,6 @@ p {
 
 span {
   color: var(--orange-color);
-}
-
-:root {
-  --orange-color: #e14f35;
-  --dark-blue: #143966;
-  --white: #ffffff;
-  --black: #000000;
 }
 
 img {
@@ -59,9 +58,13 @@ canvas {
 }
 
 #game-over,
-#game-screen,
 canvas {
-  /* display: none; */
+  display: none;
+}
+
+#score {
+  background-color: transparent;
+  position: absolute;
 }
 
 .start-button,
