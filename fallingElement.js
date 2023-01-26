@@ -71,7 +71,7 @@ class FallingElement extends Shape {
       this.ctx.font = '36px Rowdies';
       this.ctx.fillStyle = '#e14f35';
       this.ctx.fillText(
-        `Score: ${FallingElement.points}`,
+        `Ramen: ${FallingElement.points}`,
         canvas.width - 200,
         50,
       );

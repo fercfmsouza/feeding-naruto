@@ -1,5 +1,5 @@
 class GameAudio {
-  static startGameSound = new Audio('./audios/teste.mp3');
+  static startGameSound = new Audio('./audios/naruto-start-game.mp3');
   static gameOverSound = new Audio('./audios/naruto-game-over.mp3');
   static eatingSound = new Audio('./audios/eating.mp3');
 
