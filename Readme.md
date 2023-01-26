@@ -8,7 +8,7 @@ Naruto loves to eat ramen! In this game you have to help Naruto eat as much rame
 
 ## Instructions
 
-Use your mouse movement to pick up **ONLY RAMEM** and feed Naturo. You can see how many ramens you have eaten in the upper right corner of the screen.
+Use your mouse movement to pick up **ONLY RAMEN** and feed Naturo. You can see how many ramens you have eaten in the upper right corner of the screen.
 
 If you hit another element, it's game over!
 But you can restart the game by pressing **EAT AGAIN** button.
